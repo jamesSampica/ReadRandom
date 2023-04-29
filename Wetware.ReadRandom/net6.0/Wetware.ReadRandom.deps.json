@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Wetware.ReadRandom/1.0.0": {
+        "runtime": {
+          "Wetware.ReadRandom.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Wetware.ReadRandom/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
