@@ -11,23 +11,38 @@ public static class RdSeed
             //0x67, 0x0f, 0x92, 0x01, // setc byte ptr [ecx]
             0x0f, 0x92, 0x01, // setc byte ptr [rcx]
             0xc3 }; // ret
+ 
 
+        // Override our internal method with our opcodes
         Marshal.Copy(codeSeed, 0, typeof(RdSeed).GetMethod(nameof(RdSeedInternal))!.MethodHandle.GetFunctionPointer(), codeSeed.Length);
     }
 
     public static uint ReadRandom()
     {
-        uint res;
-        byte status;
-        do { res = RdSeedInternal(out status); }
-        while (status == 0);
-        return res;
+        uint result;
+
+        /*
+            The Carry Flag indicates whether a random value is available at the time the instruction is executed. 
+            CF=1 indicates that the data in the destination is valid. Otherwise CF=0 and the data in the destination 
+            operand will be returned as zeros for the specified width. All other flags are forced to 0 in either situation. 
+            Software must check the state of CF=1 for determining if a valid random seed value has been returned, 
+            otherwise it is expected to loop and retry execution of RDSEED.
+        */
+        byte carry;
+        do result = RdSeedInternal(out carry); 
+        while (carry == 0);
+
+        return result;
     }
  
+    /*
+        Don't inline. This function serves as a pointer to override with cpu instructions
+    */
     [MethodImpl(MethodImplOptions.NoInlining)]
-    static uint RdSeedInternal(out byte status)
+    public static uint RdSeedInternal(out byte carry)
     {
-        status = byte.MaxValue;
-        return 32;
+        // Needed to compile
+        carry = byte.MaxValue;
+        return 0;
     }
 }

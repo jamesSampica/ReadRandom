@@ -7,11 +7,11 @@ public static class RdRand
 {
     static RdRand()
     {
-        var opCode = new byte[] { 0x0f, 0xc7, 0xf0, // rdrand eax
+        var opCodes = new byte[] { 0x0f, 0xc7, 0xf0, // rdrand eax
             0x0f, 0x92, 0x01, // setc byte ptr [rcx]
             0xc3 }; // ret
 
-        Marshal.Copy(opCode, 0, typeof(RdRand).GetMethod(nameof(RdRandInternal))!.MethodHandle.GetFunctionPointer(), opCode.Length);
+        Marshal.Copy(opCodes, 0, typeof(RdRand).GetMethod(nameof(RdRandInternal))!.MethodHandle.GetFunctionPointer(), opCodes.Length);
     }
  
     public static uint ReadRandom()
@@ -27,6 +27,6 @@ public static class RdRand
     static uint RdRandInternal(out byte status)
     {
         status = byte.MaxValue;
-        return 32;
+        return uint.MaxValue;
     }
 }
