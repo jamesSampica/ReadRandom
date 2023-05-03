@@ -7,13 +7,17 @@ public static class Cpu
 {
     static Cpu()
     {
-        var rdSeedOps = new byte[] { 0x0f, 0xc7, 0xf8, // rdseed eax
+        var rdSeedOps = new byte[] { 
+            0x0f, 0xc7, 0xf8, // rdseed eax
             0x0f, 0x92, 0x01, // setc byte ptr [rcx]
-            0xc3 }; // ret
+            0xc3              // ret
+        };
 
-        var rdRandOps = new byte[] { 0x0f, 0xc7, 0xf0, // rdrand eax
+        var rdRandOps = new byte[] { 
+            0x0f, 0xc7, 0xf0, // rdrand eax
             0x0f, 0x92, 0x01, // setc byte ptr [rcx]
-            0xc3 }; // ret
+            0xc3              // ret
+        };
 
         // Override our internal method with our opcodes
         Marshal.Copy(rdSeedOps, 0, typeof(Cpu).GetMethod(nameof(RdSeedInternal))!.MethodHandle.GetFunctionPointer(), rdSeedOps.Length);
