@@ -24,7 +24,11 @@ public static class Cpu
         Marshal.Copy(rdRandOps, 0, typeof(Cpu).GetMethod(nameof(RdRandInternal))!.MethodHandle.GetFunctionPointer(), rdRandOps.Length);
     }
 
+    
+    /// <summary>Reads a random seed value from the CPU's deterministic random bit generator (DRBG).</summary>
     public static uint ReadRandomSeed() => ReadRandomInternal(RdSeedInternal);
+
+    /// <summary>Reads a random value from the CPU's enhanced, nondeterministic random number generator (ENRNG).</summary>
     public static uint ReadRandom() => ReadRandomInternal(RdRandInternal);
 
     delegate uint ReadRandomDelegate(out byte carry);
@@ -45,11 +49,9 @@ public static class Cpu
 
         return result;
     }
-
-    /*
-        Don't inline. This function serves as a pointer to override with cpu opcodes
-    */
-    [MethodImpl(MethodImplOptions.NoInlining)]
+s
+    /// <summary>Internal instructions for RdSeed. Not to be called directly. Use <see cref="ReadRandomSeed"/> instead.</summary>
+    [MethodImpl(MethodImplOptions.NoInlining)] // Don't inline. This function serves as a pointer to override with cpu opcodes
     public static uint RdSeedInternal(out byte carry)
     {
         // Needed to compile
@@ -57,10 +59,8 @@ public static class Cpu
         return 0;
     }
 
-    /*
-        Don't inline. This function serves as a pointer to override with cpu opcodes
-    */
-    [MethodImpl(MethodImplOptions.NoInlining)]
+    /// <summary>Internal instructions for RdRand. Not to be called directly. Use <see cref="ReadRandom"/> instead.</summary>
+    [MethodImpl(MethodImplOptions.NoInlining)] // Don't inline. This function serves as a pointer to override with cpu opcodes
     public static uint RdRandInternal(out byte carry)
     {
         // Needed to compile
