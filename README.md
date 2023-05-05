@@ -1,9 +1,11 @@
 # ReadRandom
-Dotnet library for reading random numbers from entropy-generating hardware
+Dotnet library for reading random numbers from a CPU's digital random number generator (DRNG).
 
 This library contains methods for invoking the `RDRAND` and `RDSEED` instructions on Intel and AMD CPUs.
 
 See https://www.intel.com/content/www/us/en/developer/articles/guide/intel-digital-random-number-generator-drng-software-implementation-guide.html for more details
+
+![Digital Random Number Generator design](drng.jpg "Digital Random Number Generator design")
 
 # Limitations
 
