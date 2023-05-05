@@ -49,7 +49,7 @@ public static class Cpu
 
         return result;
     }
-s
+
     /// <summary>Internal instructions for RdSeed. Not to be called directly. Use <see cref="ReadRandomSeed"/> instead.</summary>
     [MethodImpl(MethodImplOptions.NoInlining)] // Don't inline. This function serves as a pointer to override with cpu opcodes
     public static uint RdSeedInternal(out byte carry)
