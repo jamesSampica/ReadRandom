@@ -12,7 +12,7 @@ See https://www.intel.com/content/www/us/en/developer/articles/guide/intel-digit
 
 Install the `Wetware.ReadRandom` package from NuGet (https://www.nuget.org/packages/Wetware.ReadRandom)
 
-# Using
+# Usage
 
     using Wetware.ReadRandom;
     
