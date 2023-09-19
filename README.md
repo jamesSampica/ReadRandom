@@ -13,6 +13,8 @@ Install the `Wetware.ReadRandom` package from NuGet (https://www.nuget.org/packa
 
 # Using
 
+    using Wetware.ReadRandom;
+    
     //Read a random seed value from the CPU
     uint seed = Cpu.ReadRandomSeed();
 
