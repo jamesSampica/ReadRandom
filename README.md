@@ -1,4 +1,5 @@
 # ReadRandom
+
 Dotnet library for reading random numbers from a CPU's digital random number generator (DRNG).
 
 This library contains methods for invoking the `RDRAND` and `RDSEED` instructions on Intel and AMD CPUs.
