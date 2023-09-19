@@ -10,4 +10,4 @@ See https://www.intel.com/content/www/us/en/developer/articles/guide/intel-digit
 # Limitations
 
 - Does not poll the ECX register to determine if RDRAND and RDSEED are supported processor features
-- Does not support the REX a prefix and can only operate in 32 bit mode. 
+- Does not support the REX prefix and can only operate in 32 bit mode. 
