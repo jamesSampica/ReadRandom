@@ -15,10 +15,10 @@ Install the `Wetware.ReadRandom` package from NuGet (https://www.nuget.org/packa
 
     using Wetware.ReadRandom;
     
-    //Read a random seed value from the CPU
+    // Read a random seed value from the CPU
     uint seed = Cpu.ReadRandomSeed();
 
-    //Read a random value from the CPU
+    // Read a random value from the CPU
     uint random = Cpu.ReadRandom();
 
 # Limitations
