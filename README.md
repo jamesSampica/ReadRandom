@@ -7,6 +7,18 @@ See https://www.intel.com/content/www/us/en/developer/articles/guide/intel-digit
 
 ![Digital Random Number Generator design](drng.jpg "Digital Random Number Generator design")
 
+# Installing
+
+Install the `Wetware.ReadRandom` package from NuGet (https://www.nuget.org/packages/Wetware.ReadRandom)
+
+# Using
+
+    //Read a random seed value from the CPU
+    uint seed = Cpu.ReadRandomSeed();
+
+    //Read a random value from the CPU
+    uint random = Cpu.ReadRandom();
+
 # Limitations
 
 - Does not poll the ECX register to determine if RDRAND and RDSEED are supported processor features
