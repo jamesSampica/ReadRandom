@@ -5,7 +5,7 @@ This library contains methods for invoking the `RDRAND` and `RDSEED` instruction
 
 See https://www.intel.com/content/www/us/en/developer/articles/guide/intel-digital-random-number-generator-drng-software-implementation-guide.html for more details
 
-![Digital Random Number Generator design](drng.jpg "Digital Random Number Generator design")
+![Digital Random Number Generator design](https://raw.githubusercontent.com/jamesSampica/ReadRandom/main/drng.jpg "Digital Random Number Generator design")
 
 # Limitations
 
