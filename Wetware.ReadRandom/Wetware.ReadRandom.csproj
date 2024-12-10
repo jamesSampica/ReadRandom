@@ -14,7 +14,6 @@
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)' == 'Release'">
 		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
